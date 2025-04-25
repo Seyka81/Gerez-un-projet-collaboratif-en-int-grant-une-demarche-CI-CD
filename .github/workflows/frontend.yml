@@ -38,7 +38,7 @@ jobs:
         run: npm install
 
       - name: Run Angular tests and coverage
-        run: npm run test --watch=false --browsers=ChromeHeadless --code-coverage
+        run: npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage
 
       - name: Upload frontend test results
         uses: actions/upload-artifact@v4
