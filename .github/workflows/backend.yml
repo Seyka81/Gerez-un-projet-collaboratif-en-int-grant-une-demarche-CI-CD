@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - "back/**"
-      - "backend.yml"
+      - ".github/backend.yml"
 
 jobs:
   tests:
