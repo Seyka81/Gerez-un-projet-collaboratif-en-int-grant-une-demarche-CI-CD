@@ -66,8 +66,4 @@ jobs:
         run: mvn clean test jacoco:report
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
-        with:
-          projectBaseDir: back
+        run: mvn verify sonar:sonar -Dsonar.projectKey=openclassroomseyka_gerez-un-projet-collaboratif-en-int-grant-une-demarche-ci-cd-backend -Dsonar.organization=openclassroomseyka -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN_BACK }}
