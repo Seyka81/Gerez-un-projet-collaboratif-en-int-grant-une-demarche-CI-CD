@@ -71,6 +71,11 @@ jobs:
         with:
           projectBaseDir: front
 
+      - name: Check SonarCloud Quality Gate
+        uses: SonarSource/sonarcloud-quality-gate-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
+
   deploy-images:
     name: Deploy Frontend Docker Image
     needs: code-quality-analysis
