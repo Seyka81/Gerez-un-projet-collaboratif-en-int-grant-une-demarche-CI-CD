@@ -69,12 +69,7 @@ jobs:
           path: back/target/site/jacoco
 
       - name: SonarCloud Scan
-        run: mvn verify sonar:sonar -Dsonar.projectName=Gerez-un-projet-collaboratif-en-int-grant-une-demarche-ci-cd-backend -Dsonar.projectKey=openclassroomseyka_gerez-un-projet-collaboratif-en-int-grant-une-demarche-ci-cd-backend -Dsonar.organization=openclassroomseyka -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN_BACK }}
-
-      - name: Check SonarCloud Quality Gate
-        uses: SonarSource/sonarcloud-quality-gate-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
+        run: mvn verify sonar:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectName=Gerez-un-projet-collaboratif-en-int-grant-une-demarche-ci-cd-backend -Dsonar.projectKey=openclassroomseyka_gerez-un-projet-collaboratif-en-int-grant-une-demarche-ci-cd-backend -Dsonar.organization=openclassroomseyka -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN_BACK }}
 
   deploy-images:
     needs: code-quality-analysis
